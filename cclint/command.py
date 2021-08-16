@@ -44,7 +44,7 @@ import os
 import sys
 import time
 
-import cpplint
+from ament_cpplint import cpplint
 
 from cclint import file_stream
 from cclint import utility
@@ -158,7 +158,7 @@ def execute_from_command_line():
     update_cpplint_usage()
     options, cpplint_filenames = parse_arguments()
 
-    exclude_paths = [os.path.abspath(f) for f in cpplint._excludes or []]
+    exclude_paths = []
 
     # Determines the list of filenames to process.
     if options['expanddir'] == 'no':
